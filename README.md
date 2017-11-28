@@ -162,3 +162,31 @@
 
 ## 3. 揭秘 C 的语法 --- 它到底是怎么回事
 ### 3.1 解读 C 的声明
+1. 用 `英语` 来读 C 的声明, eg. `int (*pf)();` 被读成 `pf is pointer to function returning int`
+
+2. 阅读 C 声明的详细步骤
+    - 着眼于标识符 (变量名或函数名)
+    - 从距离标识符最近的地方开始, 依照优先顺序解释派生类型 (指针, 数组和函数). 优先顺序说明如下:
+        - 用于整理声明内容的 `()`
+        - 用于表示数组的 `[]`
+        - 用于表示函数的 `()`
+        - 用于表示指针的 `*`
+    - 解释完派生类型, 使用 `of`, `to`, `returning` 将它们连接起来 (array of, pointer to, function returning)
+    - 最后, 追加数据类型修饰符 (在左边, int, double 等)
+    > (注: 数组元素个数和函数的参数属于类型的一部分; 应该将它们作为附属于类型的属性进行解释)
+    
+3. C 语言声明解读示例
+
+    C语言声明 | 英语表达 | 中文表达
+    : ------ : | : ------ : | : ------:
+    int hoge; | hoge is int | hoge 是 int
+    int hoge[10]; | hoge is array of int | hoge 是 int 的数组
+    int hoge[10][3]; | hoge is array of array of int | hoge 是 int 数组的数组
+    int *hoge[10]; | hoge is array of pointer to int | hoge 是指向 int 的指针的数组
+    double (*hoge)[3]; | hoge is pointer to array of double | hoge 是指向 double 的数组的指针
+    int func(int a); | func is function returning int | func 是返回 int 的函数
+    int (*func_p)(int a); | func_p is pointer to function returning int | func_p 是指向返回 int 的函数的指针
+    
+4. 在 C 中, 遇到以下情况需要定义 `类型`
+    - 在强制转型运算符中
+    - 类型作为 `sizeof` 运算符的操作数
