@@ -3,5 +3,5 @@ project(conquest_c_pointer_kmaebashi)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES chapter_2/page_063.c)
+set(SOURCE_FILES chapter_2/byteorder.c)
 add_executable(conquest_c_pointer_kmaebashi ${SOURCE_FILES})
