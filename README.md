@@ -300,3 +300,27 @@
     - 箭头运算符 `->`
         - 通过指针访问结构体的成员的时候，会使用 -> 运算符
         - p->hoge 是 (*p).hoge 的语法糖 
+        
+### 3.4 解读 C 的声明（续）
+1. const 修饰符
+    - const 是在 ANSI C 中追加的修饰符，它将类型修饰为 `只读`
+    - const 修饰的标识符不是常量，它只是 `只读` 而已
+
+2. const 主要被用于修饰函数的参数
+    - 在现实中，当指针作为参数时，const 常用于 `将指针指向的对象设定为只读`
+    - 若函数的形参是一个指针，且这个形参的目的仅仅是 `向函数传值` 而不是 `返回多个值`，其最佳实践就是在原型声明中加入 `const`
+    - 尽管函数接受了作为参数的指针，但是指针指向的对象不会被修改，也就是说 `函数虽然接受了指针，但是并不意味着要向调用方返回值`
+
+3. 解读 const 声明的规则
+    - 遵从 3.1 中第 2 条提到的规则，从标识符开始，使用英语由内向外顺序地解释下去
+    - 一旦解释完毕的部分的左侧出现了 const，就在当前位置追加 read-only
+    - 如果解释完毕的部分的左侧出现了数据类型修饰符，并且其左侧存在 const，姑且先去掉数据类型修饰符，追加 read-only
+    - eg. char * const src 可以解释成 `src is read-only pointer to char`; char const *src 可以解释成 `src is pointer to read-only char`
+    - char const *src 等价于 const char *src
+    
+4. typedef
+    - typedef 用于给某类型定义别名, eg. `typedef char *String;`, 以后对于 `指向 char 的指针` 可以使用 `String` 这个别名
+    - 可以按照普通的变量声明的顺序来解释 `typedef`，eg. `typedef char *String` 可以解释成 `String is pointer to char`
+    - typedef 属于 `存储类型修饰符`，因为其指定类型的语法沿用了通常声明标识符的语法规则
+    - typedef 使用和通常的标识符声明相同的方式进行解释；可是，被声明的不是变量或者函数，而是类型的别名
+    - typedef 也可以一次声明类型的多个别名
