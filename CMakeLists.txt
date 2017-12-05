@@ -3,5 +3,5 @@ project(conquest_c_pointer_kmaebashi)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES chapter_4/realloc.c)
+set(SOURCE_FILES chapter_4/cat.c)
 add_executable(conquest_c_pointer_kmaebashi ${SOURCE_FILES})
