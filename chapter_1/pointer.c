@@ -15,7 +15,7 @@ int main(void) {
     printf("hoge_p..%p\n", hoge_p);
 
     /* 通过 hoge_p 输出 hoge 的内容 */
-    printf("*hoge_p..%d\n", hoge_p);
+    printf("*hoge_p..%d\n", *hoge_p);
 
     /* 通过 hoge_p 修改 hoge 的内容 */
     *hoge_p = 10;
