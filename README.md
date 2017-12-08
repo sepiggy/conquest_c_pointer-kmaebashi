@@ -1,3 +1,4 @@
+Demos for [征服c指针](https://book.douban.com/subject/21317828/)
 ## 1 从基础开始——预备知识和复习
 ### 1.2 关于指针
 1. 指针类型
