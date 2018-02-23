@@ -178,15 +178,15 @@ Demos for [征服c指针](https://book.douban.com/subject/21317828/)
     
 3. C 语言声明解读示例
 
-    C语言声明 | 英语表达 | 中文表达
-    : ------ : | : ------ : | : ------:
-    int hoge; | hoge is int | hoge 是 int
-    int hoge[10]; | hoge is array of int | hoge 是 int 的数组
-    int hoge[10][3]; | hoge is array of array of int | hoge 是 int 数组的数组
-    int *hoge[10]; | hoge is array of pointer to int | hoge 是指向 int 的指针的数组
-    double (*hoge)[3]; | hoge is pointer to array of double | hoge 是指向 double 的数组的指针
-    int func(int a); | func is function returning int | func 是返回 int 的函数
-    int (*func_p)(int a); | func_p is pointer to function returning int | func_p 是指向返回 int 的函数的指针
+    | C语言声明 | 英语表达 | 中文表达 |
+    | :------: | :------: | :-----: |
+    | int hoge; | hoge is int | hoge 是 int |
+    | int hoge[10]; | hoge is array of int | hoge 是 int 的数组 |
+    | int hoge[10][3]; | hoge is array of array of int | hoge 是 int 数组的数组|
+    | int *hoge[10]; | hoge is array of pointer to int | hoge 是指向 int 的指针的数组|
+    |double (*hoge)[3]; | hoge is pointer to array of double | hoge 是指向 double 的数组的指针|
+    |int func(int a); | func is function returning int | func 是返回 int 的函数|
+    |int (*func_p)(int a); | func_p is pointer to function returning int | func_p 是指向返回 int 的函数的指针|
     
 4. 在 C 中, 遇到以下情况需要定义 `类型`
     - 在强制转型运算符中
